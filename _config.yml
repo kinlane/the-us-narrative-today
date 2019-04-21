@@ -6,10 +6,10 @@ paginate_path: "/page/:num"
 permalink: /:year/:month/:day/:title/
 google_analytics:
 
-name: Kin Lane
-title: Kin Lane
+name: The US Narrative Today
+title: The US Narrative Today
 description: >
-  My personal blog and storytelling platform.
+  The narrative across the United States today, pulling news stories from all 50 states, and assembling them into a single narrative for the day.
 url: http://the.us.narrative.today.kinlane.com
 twitter_username: kinlane
 default_img: /assets/images/seo.jpg
