@@ -22,8 +22,16 @@ layout: default
     <div class="post__content section-padding">
       <div class="grid">
         <div id="markdown" itemprop="articleBody">
+          {% assign stanza_count = 1 %}
           {% for story in page.stories %}
             {{ story.title }}<br>
+
+            {% assign stanza_count = stanza_count | plus: 1 %}
+
+            {% if stanza_count == 5 %}
+              <br>
+              {% assign stanza_count = 1 %}
+            {% endif %}
           {% endfor %}
         </div>
       </div>
