@@ -21,7 +21,7 @@ layout: default
       <div class="grid">
           {% assign stanza_count = 1 %}
           {% for story in page.stories %}
-            {{ story.title }}<br />
+            <span title="{{ story.city }}, {{ story.state }}">{{ story.title }}</span><br />
 
             {% assign stanza_count = stanza_count | plus: 1 %}
 
