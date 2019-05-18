@@ -9,10 +9,18 @@ layout: default
       </div>
     </div>
 
+    {% assign first_image = 1 %}
+    {% assign header_image = '' %}
+    {% for image in page.images %}
+      {% if first_image == 1 %}
+        {% assign header_image = image.url %}
+      {% endif %}
+    {% endfor %}
+
     {% if page.image %}
       <div class="post__img">
         <div>
-          <figure class="absolute-bg" style="background-image: url('{{ page.image }}');"></figure>
+          <figure class="absolute-bg" style="background-image: url('{{ header_image }}');"></figure>
         </div>
       </div>
     {% endif %}
@@ -20,6 +28,8 @@ layout: default
     <div class="post__content section-padding">
       <div class="grid">
           {% assign stanza_count = 1 %}
+          {% assign image_stanza_count = 1 %}
+          {% assign image_count = 1 %}
           {% for story in page.stories %}
             <span title="{{ story.paper }}in {{ story.city }}, {{ story.state }}">{{ story.title }}</span><br />
 
@@ -28,7 +38,21 @@ layout: default
             {% if stanza_count == 5 %}
               <br />
               {% assign stanza_count = 1 %}
+
+              {% assign image_stanza_count = image_stanza_count | plus: 1 %}
+
+              {% if image_stanza_count == 5 %}
+                <br />
+                {% assign image_stanza_count = 1 %}
+
+                {% assign image_count = image_count | plus: 1 %}
+
+                show image: {{ page.images[image_count].url }}<br>
+
+              {% endif %}
+
             {% endif %}
+
           {% endfor %}
       </div>
     </div>
