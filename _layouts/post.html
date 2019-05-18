@@ -14,9 +14,12 @@ layout: default
     {% for image in page.images %}
       {% if first_image == 1 %}
         {% assign header_image = image.url %}
+        {% assign first_image = 1 %}
       {% endif %}
+      image: {{ image.url }}<br>
     {% endfor %}
 
+    header_image: {{ header_image }}<br>
     {% if header_image %}
       <div class="post__img">
         <div>
