@@ -2,7 +2,7 @@
   <a class="posts__link" href="{{ post.url | prepend: site.baseurl }}" itemprop="url">
     {% assign first_image = 1 %}
     {% assign header_image = '' %}
-    {% for image in page.images %}
+    {% for image in post.images %}
       {% if first_image == 1 %}
         {% assign header_image = image.url %}
         {% assign first_image = 1 %}
